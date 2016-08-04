@@ -14,6 +14,15 @@ public class ComputeSpan {
        this.stack = new ArrayDeque<>();
     }
 
+    /**
+     * A Linear Time Complexity Method
+     * We see that S[i] on day i can be easily computed if we know the closest day preceding i,
+     * such that the price is greater than on that day than the price on day i.
+     * If such a day exists, let’s call it h(i), otherwise, we define h(i) = -1.
+     * The span is now computed as S[i] = i – h(i). See the following diagram.
+     * @param prices - Arrays of stock prices
+     * @return Array containing span of ith price at Span[i]
+     */
     public int[] computeSpan(int[] prices){
         int n = prices.length;
         int[] spans = new int[n];
