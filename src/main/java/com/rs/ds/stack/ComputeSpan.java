@@ -8,12 +8,6 @@ import java.util.Deque;
  */
 public class ComputeSpan {
 
-    private Deque<Integer> stack;
-
-    public ComputeSpan(){
-       this.stack = new ArrayDeque<>();
-    }
-
     /**
      * A Linear Time Complexity Method
      * We see that S[i] on day i can be easily computed if we know the closest day preceding i,
@@ -24,6 +18,7 @@ public class ComputeSpan {
      * @return Array containing span of ith price at Span[i]
      */
     public int[] computeSpan(int[] prices){
+        Deque<Integer> stack = new ArrayDeque<>();
         int n = prices.length;
         int[] spans = new int[n];
         for(int i = 0 ; i < n ; i++){
