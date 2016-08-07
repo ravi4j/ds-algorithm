@@ -8,13 +8,8 @@ import java.util.Deque;
  */
 public class BalanceBrackets {
 
-    private Deque<Character> stack = null;
     private static final String OPENING_BRACKETS = "([{";
     private static final String CLOSING_BRACKETS = ")]}";
-
-    public BalanceBrackets(){
-        this.stack = new ArrayDeque<>();
-    }
 
     public String isBalanced(String input) {
 
@@ -22,8 +17,7 @@ public class BalanceBrackets {
     }
 
     private boolean _isBalanced(String input) {
-        boolean balanced = true;
-
+        Deque<Character> stack = new ArrayDeque<>();
         if(input == null || input.isEmpty()){
             throw new RuntimeException("Input is null or empty");
         }
@@ -51,7 +45,11 @@ public class BalanceBrackets {
                 }
             }
         }
-        return balanced;
+
+        if(! stack.isEmpty())
+            return false;
+
+        return true;
     }
 
     private boolean _isOpeningBracket(char ch){

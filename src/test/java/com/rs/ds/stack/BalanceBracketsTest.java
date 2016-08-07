@@ -46,13 +46,25 @@ public class BalanceBracketsTest {
     public void testBalancedNonBrackets(){
         //{{[[(())]]}}
         //([])[()]{[]}
-        String balanced = balanceBrackets.isBalanced("{{[[([])]]}}");
+        String balanced = balanceBrackets.isBalanced("(ABCEDFG)");
         assertEquals(balanced , "YES");
     }
 
     @Test
     public void testNonBalancedBrackets(){
         String balanced = balanceBrackets.isBalanced("{[(])}");
+        assertEquals(balanced , "NO");
+    }
+
+    @Test
+    public void testOnlyOpeningBalancedBrackets(){
+        String balanced = balanceBrackets.isBalanced("([{");
+        assertEquals(balanced , "NO");
+    }
+
+    @Test
+    public void testOnlyClosingBalancedBrackets(){
+        String balanced = balanceBrackets.isBalanced(")]}");
         assertEquals(balanced , "NO");
     }
 }
