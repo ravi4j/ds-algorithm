@@ -86,7 +86,7 @@ public class DynamicArrayTest {
 
     @After
     public void destroy(){
-        //sc.close();
+        sc.close();
     }
 
 }
